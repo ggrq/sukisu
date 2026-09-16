@@ -1,0 +1,25 @@
+[package]
+name = "ksuinit"
+version = "2.0.0"
+edition.workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+# for elf parsing
+goblin = "0.10"
+scroll = "0.13"
+
+anyhow.workspace = true
+# 原 git 依赖 Kernel-SU/rustix 已转私有，改用 crates.io 公开版；init_module 改用 syscalls 直接调用
+rustix = { version = "0.38", features = ["mount", "fs", "runtime", "process"] }
+
+syscalls = { version = "0.8", default-features = false, features = [
+    "aarch64",
+    "x86_64",
+] }
+
+# for kmsg logging
+log.workspace = true
+kernlog = { git = "https://github.com/kstep/kernlog.rs" }
