@@ -228,7 +228,7 @@ private fun TopBar(
         TopAppBar(
             color = barColor,
             title = stringResource(R.string.app_name),
-            titleColor = BasicComponentDefaults.titleColor(color = Color(0xFFE8EDFF)),
+            titleColor = Color(0xFFE8EDFF),
             actions = {
                 RebootListPopupMiuix()
             },
