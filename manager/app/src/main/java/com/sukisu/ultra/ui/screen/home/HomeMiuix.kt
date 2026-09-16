@@ -5,6 +5,7 @@ import androidx.compose.animation.expandVertically
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.shrinkVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -58,6 +59,7 @@ import com.sukisu.ultra.ui.util.BlurredBar
 import com.sukisu.ultra.ui.util.module.LatestVersionInfo
 import com.sukisu.ultra.ui.util.rememberBlurBackdrop
 import top.yukonga.miuix.kmp.basic.BasicComponent
+import top.yukonga.miuix.kmp.basic.BasicComponentDefaults
 import top.yukonga.miuix.kmp.basic.ButtonDefaults
 import top.yukonga.miuix.kmp.basic.Card
 import top.yukonga.miuix.kmp.basic.CardDefaults
@@ -226,7 +228,7 @@ private fun TopBar(
         TopAppBar(
             color = barColor,
             title = stringResource(R.string.app_name),
-            titleColor = Color(0xFFE8EDFF),
+            titleColor = BasicComponentDefaults.titleColor(color = Color(0xFFE8EDFF)),
             actions = {
                 RebootListPopupMiuix()
             },
@@ -422,7 +424,7 @@ private fun StatusCard(
                         },
                         showIndication = !state.isLateLoadMode,
                         pressFeedbackType = PressFeedbackType.Sink,
-                        shape = cardShape
+                        cornerRadius = 28.dp
                     ) {
                         BasicComponent(
                             title = stringResource(R.string.home_not_installed),
@@ -458,7 +460,7 @@ private fun StatusCard(
                     },
                     showIndication = !state.isLateLoadMode,
                     pressFeedbackType = PressFeedbackType.Sink,
-                    shape = cardShape
+                    cornerRadius = 28.dp
                 ) {
                     BasicComponent(
                         title = stringResource(R.string.home_unsupported),
@@ -485,16 +487,16 @@ private fun LearnMoreCard(
     val url = stringResource(R.string.home_learn_kernelsu_url)
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(28.dp),
+        cornerRadius = 28.dp,
         colors = CardDefaults.defaultColors(
             color = Color(0xFF1E293B)
         )
     ) {
         BasicComponent(
             title = stringResource(R.string.home_learn_kernelsu),
-            titleColor = Color(0xFFE8EDFF),
+            titleColor = BasicComponentDefaults.titleColor(color = Color(0xFFE8EDFF)),
             summary = stringResource(R.string.home_click_to_learn_kernelsu),
-            summaryColor = Color(0xFF94A3B8),
+            summaryColor = BasicComponentDefaults.summaryColor(color = Color(0xFF94A3B8)),
             endActions = {
                 Icon(
                     imageVector = MiuixIcons.Link,
@@ -511,16 +513,16 @@ private fun LearnMoreCard(
 private fun DonateCard(onOpenUrl: (String) -> Unit) {
     Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(28.dp),
+        cornerRadius = 28.dp,
         colors = CardDefaults.defaultColors(
             color = Color(0xFF1E293B)
         )
     ) {
         BasicComponent(
             title = stringResource(R.string.home_support_title),
-            titleColor = Color(0xFFE8EDFF),
+            titleColor = BasicComponentDefaults.titleColor(color = Color(0xFFE8EDFF)),
             summary = stringResource(R.string.home_support_content),
-            summaryColor = Color(0xFF94A3B8),
+            summaryColor = BasicComponentDefaults.summaryColor(color = Color(0xFF94A3B8)),
             endActions = {
                 Icon(
                     imageVector = MiuixIcons.Link,
@@ -567,7 +569,7 @@ private fun InfoCard(systemInfo: SystemInfo, showFullStatus: Boolean = true) {
     }
 
     Card(
-        shape = RoundedCornerShape(28.dp),
+        cornerRadius = 28.dp,
         colors = CardDefaults.defaultColors(
             color = Color(0xFF0F172A)
         )

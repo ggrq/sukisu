@@ -143,4 +143,3 @@ val LocalEnableFloatingBottomBar = staticCompositionLocalOf { false }
 
 val LocalEnableFloatingBottomBarBlur = staticCompositionLocalOf { false }
 
-val LocalCyberpunkMode = staticCompositionLocalOf { false }
