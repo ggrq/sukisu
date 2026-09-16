@@ -57,8 +57,8 @@ nom = "8"
 derive-new = "0.7"
 getopts = "0.2"
 ksuinit = { path = "../ksuinit" }
-# 原 git 依赖 Kernel-SU/adb_client 已转私有，改用 crates.io 公开版（API 兼容：ADBTcpDevice/ADBDeviceExt）
-adb_client = { version = "2.1" }
+# 原 git 依赖 Kernel-SU/adb_client 已转私有，改用公开镜像 MySU-org/adb_client（保留原始 API：tcp::ADBTcpDevice + shell_command）
+adb_client = { git = "https://github.com/MySU-org/adb_client", rev = "d97a966435bebaa55017834869dec08150826aa7" }
 # 原 git 依赖 Kernel-SU/ksu_props 已转私有，改用公开 fork MySU-org/ksu_props（HEAD 即所需 rev）
 prop-rs-android = { git = "https://github.com/MySU-org/ksu_props", rev = "6f5723105d8d4cacad31d83d343defbf032c7b33" }
 serde = { version = "1.0", features = ["derive"] }
