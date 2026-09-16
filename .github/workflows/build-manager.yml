@@ -62,7 +62,6 @@ jobs:
           echo "keystore=$(base64 -w 0 pr-key.jks)" >> $GITHUB_OUTPUT
 
       - name: Extract certificate hash and size
-        if: github.event_name == 'pull_request'
         id: extract
         env:
           STORE_PASS: ${{ steps.gen.outputs.keystore_password }}
